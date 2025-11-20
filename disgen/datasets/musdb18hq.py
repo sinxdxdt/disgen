@@ -13,9 +13,6 @@ try:
     MUSDB_AVAILABLE = True
 except ImportError:
     MUSDB_AVAILABLE = False
-    warnings.warn(
-        "musdb not installed. To use MUSDB18-HQ, install with: pip install musdb"
-    )
 
 
 @DatasetRegistry.register("musdb18hq", tags=["musdb", "musdb18"])

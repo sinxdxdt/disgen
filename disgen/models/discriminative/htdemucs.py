@@ -31,9 +31,6 @@ try:
     DEMUCS_AVAILABLE = True
 except ImportError:
     DEMUCS_AVAILABLE = False
-    warnings.warn(
-        "demucs not installed. To use HTDemucs, install with: pip install demucs"
-    )
 
 
 @ModelRegistry.register("htdemucs", tags=["demucs", "htdemucs_v4", "htdemucs_ft"])

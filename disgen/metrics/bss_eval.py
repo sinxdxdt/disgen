@@ -11,9 +11,6 @@ try:
     MUSEVAL_AVAILABLE = True
 except ImportError:
     MUSEVAL_AVAILABLE = False
-    warnings.warn(
-        "museval not installed. Install with: pip install museval"
-    )
 
 
 @MetricRegistry.register("bss_eval", tags=["sdr", "sir", "sar", "snr"])

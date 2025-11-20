@@ -18,18 +18,17 @@ install_requires = [
     "scikit-image>=0.18.0",
     "pandas>=1.3.0",
     "tqdm>=4.60.0",
-]
-
-# Optional dependencies for metrics
-metrics_requires = [
-    "museval>=0.4.0",
-    "fadtk>=1.0.0",
-]
-
-# Optional dependencies for models
-models_requires = [
+    "pyyaml>=5.4.0",
+    # PyTorch for GPU Support and models
     "torch>=1.9.0",
     "torchaudio>=0.9.0",
+    # Metrics
+    "museval>=0.4.0",
+    "fadtk>=1.0.0",
+    # Models
+    "demucs>=4.0.0",
+    # Datasets
+    "musdb>=0.4.0",
 ]
 
 # Test dependencies
@@ -40,10 +39,8 @@ test_requires = [
 
 # All optional dependencies
 extras_require = {
-    "metrics": metrics_requires,
-    "models": models_requires,
     "test": test_requires,
-    "all": metrics_requires + models_requires + test_requires,
+    "dev": test_requires,
 }
 
 setup(

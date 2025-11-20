@@ -9,13 +9,10 @@ import os
 from disgen.core.base_metric import BaseMetric, MetricRegistry
 
 try:
-    import fadtk
+    from fadtk import FrechetAudioDistance as FADToolkit
     FADTK_AVAILABLE = True
 except ImportError:
     FADTK_AVAILABLE = False
-    warnings.warn(
-        "fadtk not installed. Install with: pip install fadtk"
-    )
 
 try:
     import soundfile as sf
