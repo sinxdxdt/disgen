@@ -1,0 +1,31 @@
+# Model-specific dependencies
+
+## Discriminative Models
+
+# HTDemucs v4
+demucs>=4.0.0
+
+# Spleeter
+# spleeter>=2.3.0
+
+# Open-Unmix
+# openunmix-pytorch>=1.2.0
+
+# ConvTasNet (via Asteroid)
+# asteroid>=0.5.0
+
+## Generative Models
+
+# HiFiGAN (manual installation from https://github.com/jik876/hifi-gan)
+# Clone repository and follow installation instructions
+
+## Dataset Access
+
+# MUSDB18-HQ
+musdb>=0.4.0
+
+# MoisesDB
+# moisesdb (contact Moises for access)
+
+# Slakh2100 (download from http://www.slakh.com/)
+pyyaml>=5.4.0
