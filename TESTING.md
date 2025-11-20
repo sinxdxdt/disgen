@@ -16,7 +16,7 @@ All unit tests use mock models and synthetic audio data, so they can run on any 
 ### Installation
 
 ```bash
-cd /Users/mykyta/disgen
+cd disgen
 pip install -e .[test]
 ```
 

@@ -17,7 +17,7 @@ A comprehensive Python library for evaluating generative refinement of discrimin
 ### Basic Installation
 
 ```bash
-cd /Users/mykyta/disgen
+cd disgen
 pip install -e .
 ```
 
@@ -302,35 +302,3 @@ pytest tests/ -v
 # With coverage
 pytest tests/ --cov=disgen --cov-report=html
 ```
-
-## License
-
-MIT License
-
-## Citation
-
-If you use this library in your research, please cite:
-
-```bibtex
-@software{disgen2025,
-  title={disgen: Music Source Separation Evaluation Library},
-  author={disgen contributors},
-  year={2025},
-  url={https://github.com/yourusername/disgen}
-}
-```
-
-## Contributing
-
-Contributions welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Submit a pull request
-
-## Support
-
-For issues and questions:
-- GitHub Issues: https://github.com/yourusername/disgen/issues
-- Documentation: https://disgen.readthedocs.io (coming soon)
