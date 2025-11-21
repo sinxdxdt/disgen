@@ -1,4 +1,6 @@
-# disgen - Music Source Separation Evaluation
+# disgen - Music Source Separation Evaluation Library
+
+A comprehensive Python library for evaluating generative refinement of discriminative music source separation models.
 
 ## Features
 
@@ -15,7 +17,7 @@
 ### Basic Installation
 
 ```bash
-cd disgen
+cd /Users/mykyta/disgen
 pip install -e .
 ```
 
@@ -23,13 +25,17 @@ This installs core dependencies including PyTorch for GPU support.
 
 ### Model-Specific Dependencies
 
+All dependencies are now installed automatically with the main package!
+
 ```bash
-# DisCoder vocoder (for neural codec-based refinement)
-pip install git+https://github.com/ETH-DISCO/discoder.git
+# HTDemucs, DisCoder, MUSDB18-HQ already included in install_requires
+# No additional installation needed
 
 # HiFiGAN (requires manual setup)
 # Clone https://github.com/jik876/hifi-gan and follow their instructions
 ```
+
+> **Note**: DisCoder is vendored in `disgen/vendor/discoder` - no separate installation required!
 
 ### Development/Testing
 
@@ -303,7 +309,7 @@ class MyMetric(BaseMetric):
 
 ## Statistical Testing
 
-Model-level statistical significance testing:
+The library computes model-level statistical significance using:
 
 - **Paired t-test**: Parametric test for mean differences
 - **Wilcoxon signed-rank test**: Non-parametric alternative
@@ -341,3 +347,35 @@ pytest tests/ -v
 # With coverage
 pytest tests/ --cov=disgen --cov-report=html
 ```
+
+## License
+
+MIT License
+
+## Citation
+
+If you use this library in your research, please cite:
+
+```bibtex
+@software{disgen2025,
+  title={disgen: Music Source Separation Evaluation Library},
+  author={disgen contributors},
+  year={2025},
+  url={https://github.com/yourusername/disgen}
+}
+```
+
+## Contributing
+
+Contributions welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Add tests for new functionality
+4. Submit a pull request
+
+## Support
+
+For issues and questions:
+- GitHub Issues: https://github.com/yourusername/disgen/issues
+- Documentation: https://disgen.readthedocs.io (coming soon)

@@ -1,0 +1,17 @@
+DisCoder
+--------
+Repository: https://github.com/ETH-DISCO/discoder
+Commit: main branch (latest as of 2025-11-21)
+Date Vendored: 2025-11-21
+License: MIT
+Purpose: High-fidelity neural vocoder using neural audio codecs
+
+Files vendored:
+- models.py - Core DisCoder model architecture
+- utils.py - Utility functions for mel extraction and audio processing
+- meldataset.py - Audio loading and mel spectrogram dataset utilities
+- modules.py - Network building blocks (ResBlock, Snake activation, etc.)
+- discriminator.py - GAN discriminator for training
+- filter.py - Audio filtering utilities
+
+See LICENSES/DisCoder-LICENSE for full license text.

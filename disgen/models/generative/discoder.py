@@ -4,9 +4,7 @@ DisCoder is a high-fidelity music vocoder using neural audio codecs.
 Paper: https://arxiv.org/abs/2502.12759
 Model: https://huggingface.co/disco-eth/discoder
 
-Installation required:
-    pip install descript-audio-codec einops
-    pip install git+https://github.com/ETH-DISCO/discoder.git
+DisCoder is vendored in disgen.vendor.discoder - no separate installation needed!
 
 Usage:
     from disgen.models.generative import DisCoder
@@ -41,11 +39,14 @@ except ImportError:
     TORCH_AVAILABLE = False
 
 try:
-    from discoder.models import DisCoder as DisCoderModel
-    from discoder import meldataset, utils as discoder_utils
+    # Use vendored DisCoder (no separate installation needed)
+    from disgen.vendor.discoder.models import DisCoder as DisCoderModel
+    from disgen.vendor.discoder import meldataset
+    from disgen.vendor.discoder import utils as discoder_utils
     DISCODER_AVAILABLE = True
-except ImportError:
+except ImportError as e:
     DISCODER_AVAILABLE = False
+    _import_error = str(e)
 
 try:
     import librosa
@@ -98,9 +99,9 @@ class DisCoder(GenerativeModel):
         
         if not DISCODER_AVAILABLE:
             raise ImportError(
-                "DisCoder package not installed. Install with:\n"
-                "  pip install descript-audio-codec einops\n"
-                "  pip install git+https://github.com/ETH-DISCO/discoder.git"
+                "DisCoder vendored code not found or missing dependencies. Install:\n"
+                "  pip install descript-audio-codec einops huggingface_hub\n"
+                f"Error: {_import_error if '_import_error' in locals() else 'unknown'}"
             )
         
         self.checkpoint_path = Path(checkpoint_path) if checkpoint_path else None

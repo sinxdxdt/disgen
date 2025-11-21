@@ -7,6 +7,29 @@ import torch
 from disgen.models.generative.discoder import DisCoder, DISCODER_AVAILABLE
 
 
+class TestDisCoderVendored:
+    """Tests for vendored DisCoder installation."""
+    
+    def test_vendored_import(self):
+        """Test that vendored DisCoder can be imported."""
+        try:
+            from disgen.vendor.discoder import models, utils, meldataset
+            assert hasattr(models, 'DisCoder')
+            assert hasattr(utils, 'get_mel_spectrogram_from_config')
+            assert hasattr(meldataset, 'mel_spectrogram')
+        except ImportError as e:
+            pytest.fail(f"Vendored DisCoder import failed: {e}")
+    
+    def test_wrapper_uses_vendored(self):
+        """Test that wrapper correctly imports vendored version."""
+        assert DISCODER_AVAILABLE, "DisCoder should be available (vendored)"
+        
+        # Test creating wrapper (doesn't load model)
+        model = DisCoder(use_pretrained=False, device="cpu")
+        assert model is not None
+        assert not model.is_loaded
+
+
 @pytest.mark.skipif(not DISCODER_AVAILABLE, reason="DisCoder not installed")
 class TestDisCoderIntegration:
     """Integration tests for DisCoder model."""
