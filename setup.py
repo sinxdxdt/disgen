@@ -13,26 +13,19 @@ if readme_path.exists():
 install_requires = [
     "numpy>=1.20.0",
     "scipy>=1.7.0",
-    "librosa>=0.9.0",
-    "soundfile>=0.10.0",
-    "scikit-image>=0.18.0",
-    "pandas>=1.3.0",
-    "tqdm>=4.60.0",
-    "pyyaml>=5.4.0",
-    # PyTorch for GPU support and models
-    "torch>=1.9.0",
-    "torchaudio>=0.9.0",
-    # Metrics
-    "museval>=0.4.0",
-    "fadtk>=1.0.0",
-    # Models
+    "torch>=2.0.0",
+    "torchaudio>=2.0.0",
+    # Audio processing
+    "librosa>=0.10.0",
+    "soundfile>=0.12.0",
+    # ML/Audio models
     "demucs>=4.0.0",
-    # DisCoder vocoder dependencies (discoder itself installed separately)
     "descript-audio-codec>=1.0.0",
     "einops>=0.6.0",
     "huggingface_hub>=0.16.0",
     # Datasets
     "musdb>=0.4.0",
+    "moisesdb @ git+https://github.com/moises-ai/moises-db.git",
 ]
 
 # Test dependencies

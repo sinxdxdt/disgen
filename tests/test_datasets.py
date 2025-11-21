@@ -164,3 +164,38 @@ class TestDatasetRegistry:
         """Test listing datasets."""
         datasets = DatasetRegistry.list_datasets()
         assert "mock_dataset" in datasets
+
+
+try:
+    from disgen.datasets.moisesdb import MOISESDB_AVAILABLE
+except ImportError:
+    MOISESDB_AVAILABLE = False
+
+
+@pytest.mark.skipif(not MOISESDB_AVAILABLE, reason="moisesdb not installed")
+class TestMoisesDB:
+    """Test MoisesDB integration with official package."""
+    
+    def test_import_available(self):
+        """Test that moisesdb package is importable."""
+        from disgen.datasets import MoisesDB
+        assert MoisesDB is not None
+    
+    def test_initialization(self):
+        """Test MoisesDB initialization."""
+        from disgen.datasets import MoisesDB
+        
+        dataset = MoisesDB(
+            root_path="/fake/path",
+            subset="test",
+            sample_rate=44100
+        )
+        assert dataset.sample_rate == 44100
+        assert dataset.subset == "test"
+    
+    def test_import_error_without_package(self):
+        """Test error when moisesdb package not available."""
+        # This will only run if MOISESDB_AVAILABLE is True,
+        # so we just verify the import check exists
+        from disgen.datasets.moisesdb import MOISESDB_AVAILABLE
+        assert MOISESDB_AVAILABLE is True

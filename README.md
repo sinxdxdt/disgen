@@ -28,14 +28,15 @@ This installs core dependencies including PyTorch for GPU support.
 All dependencies are now installed automatically with the main package!
 
 ```bash
-# HTDemucs, DisCoder, MUSDB18-HQ already included in install_requires
+# HTDemucs, DisCoder, MoisesDB, MUSDB18-HQ already included in install_requires
 # No additional installation needed
 
 # HiFiGAN (requires manual setup)
 # Clone https://github.com/jik876/hifi-gan and follow their instructions
 ```
 
-> **Note**: DisCoder is vendored in `disgen/vendor/discoder` - no separate installation required!
+> **Note**: DisCoder is vendored in `disgen/vendor/discoder` - no separate installation required!  
+> **Note**: MoisesDB uses the official `moisesdb` package - auto-installed from GitHub!
 
 ### Development/Testing
 
