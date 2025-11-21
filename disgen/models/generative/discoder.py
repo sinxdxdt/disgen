@@ -98,10 +98,8 @@ class DisCoder(GenerativeModel):
             )
         
         if not DISCODER_AVAILABLE:
-            raise ImportError(
-                "DisCoder vendored code not found or missing dependencies. Install:\n"
-                "  pip install descript-audio-codec einops huggingface_hub\n"
-                f"Error: {_import_error if '_import_error' in locals() else 'unknown'}"
+            raise Exception(
+                f"Error: {_import_error}"
             )
         
         self.checkpoint_path = Path(checkpoint_path) if checkpoint_path else None
