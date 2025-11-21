@@ -9,7 +9,7 @@ long_description = ""
 if readme_path.exists():
     long_description = readme_path.read_text(encoding="utf-8")
 
-# Core dependencies
+# Core dependencies - all required for basic functionality
 install_requires = [
     "numpy>=1.20.0",
     "scipy>=1.7.0",
@@ -19,7 +19,7 @@ install_requires = [
     "pandas>=1.3.0",
     "tqdm>=4.60.0",
     "pyyaml>=5.4.0",
-    # PyTorch for GPU Support and models
+    # PyTorch for GPU support and models
     "torch>=1.9.0",
     "torchaudio>=0.9.0",
     # Metrics
@@ -27,6 +27,11 @@ install_requires = [
     "fadtk>=1.0.0",
     # Models
     "demucs>=4.0.0",
+    # DisCoder vocoder dependencies
+    "descript-audio-codec>=1.0.0",
+    "einops>=0.6.0",
+    "huggingface_hub>=0.16.0",
+    "git+https://github.com/ETH-DISCO/discoder.git",
     # Datasets
     "musdb>=0.4.0",
 ]

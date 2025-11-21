@@ -1,6 +1,4 @@
-# disgen - Music Source Separation Evaluation Library
-
-A comprehensive Python library for evaluating generative refinement of discriminative music source separation models.
+# disgen - Music Source Separation Evaluation
 
 ## Features
 
@@ -134,6 +132,50 @@ Reporter.export_json(results, "results.json")
 Reporter.export_markdown(results, "results.md")
 ```
 
+### Using DisCoder Vocoder
+
+```python
+from disgen.models.discriminative import HTDemucs
+from disgen.models.generative import DisCoder
+from disgen.datasets import MUSDB18HQ
+from disgen.metrics import BSSEvalMetrics, FrechetAudioDistance
+from disgen.pipeline import Evaluator, Reporter
+
+# Initialize HTDemucs
+disc_model = HTDemucs(model_name="htdemucs_ft", device="cuda")
+
+# Initialize DisCoder with pretrained model from Hugging Face
+gen_model = DisCoder(
+    use_pretrained=True,  # Loads disco-eth/discoder from HuggingFace
+    device="cuda"
+)
+
+# Or use custom checkpoint
+# gen_model = DisCoder(
+#     checkpoint_path="/path/to/discoder.pt",
+#     config_path="/path/to/config_z.json",
+#     use_pretrained=False,
+#     device="cuda"
+# )
+
+# Initialize dataset
+dataset = MUSDB18HQ(root_path="/path/to/musdb18hq", subset="test")
+
+# Create evaluator
+evaluator = Evaluator(
+    discriminative_model=disc_model,
+    generative_model=gen_model,
+    dataset=dataset,
+    metrics=[BSSEvalMetrics(), FrechetAudioDistance()]
+)
+
+# Run evaluation - DisCoder will refine HTDemucs outputs
+results = evaluator.evaluate(stem="vocals", max_tracks=10)
+
+Reporter.print_summary(results)
+Reporter.export_json(results, "results.json")
+```
+
 ### Using CLI
 
 ```bash
@@ -264,7 +306,7 @@ class MyMetric(BaseMetric):
 
 ## Statistical Testing
 
-The library computes model-level statistical significance using:
+Model-level statistical significance testing:
 
 - **Paired t-test**: Parametric test for mean differences
 - **Wilcoxon signed-rank test**: Non-parametric alternative

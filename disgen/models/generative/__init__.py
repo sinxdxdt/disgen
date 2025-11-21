@@ -8,7 +8,13 @@ try:
 except ImportError:
     HiFiGAN = None
 
+try:
+    from disgen.models.generative.discoder import DisCoder
+except ImportError:
+    DisCoder = None
+
 __all__ = [
     "MockGenerativeModel",
     "HiFiGAN",
+    "DisCoder",
 ]
