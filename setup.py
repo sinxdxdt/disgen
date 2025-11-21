@@ -25,7 +25,7 @@ install_requires = [
     "huggingface_hub>=0.16.0",
     # Datasets
     "musdb>=0.4.0",
-    "moisesdb @ git+https://github.com/moises-ai/moises-db.git",
+    "moises-db @ git+https://github.com/moises-ai/moises-db.git@1fbc5c784e24c6f0eb826d7ee782b53a5964b9b6",
 ]
 
 # Test dependencies
