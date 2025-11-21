@@ -24,11 +24,8 @@ This installs core dependencies including PyTorch for GPU support.
 ### Model-Specific Dependencies
 
 ```bash
-# HTDemucs
-pip install demucs
-
-# MUSDB18-HQ dataset
-pip install musdb
+# DisCoder vocoder (for neural codec-based refinement)
+pip install git+https://github.com/ETH-DISCO/discoder.git
 
 # HiFiGAN (requires manual setup)
 # Clone https://github.com/jik876/hifi-gan and follow their instructions

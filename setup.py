@@ -27,11 +27,10 @@ install_requires = [
     "fadtk>=1.0.0",
     # Models
     "demucs>=4.0.0",
-    # DisCoder vocoder dependencies
+    # DisCoder vocoder dependencies (discoder itself installed separately)
     "descript-audio-codec>=1.0.0",
     "einops>=0.6.0",
     "huggingface_hub>=0.16.0",
-    "git+https://github.com/ETH-DISCO/discoder.git",
     # Datasets
     "musdb>=0.4.0",
 ]
