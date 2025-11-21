@@ -9,7 +9,7 @@ import dac
 from dac.model.dac import Decoder as DACDecoder
 from huggingface_hub import PyTorchModelHubMixin, hf_hub_download
 
-from discoder.modules import ResBlock, Activation1d, Snake1d
+from .modules import ResBlock, Activation1d, Snake1d
 
 
 class DDP(torch.nn.parallel.DistributedDataParallel):

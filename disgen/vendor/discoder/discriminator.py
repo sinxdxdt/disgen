@@ -6,7 +6,7 @@ from torch.nn.utils.parametrizations import weight_norm, spectral_norm
 from einops import rearrange
 from audiotools import AudioSignal, STFTParams
 
-from discoder.modules import get_padding
+from .modules import get_padding
 
 
 LRELU_SLOPE = 0.1

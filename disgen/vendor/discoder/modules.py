@@ -3,7 +3,7 @@ from torch import nn
 from torch.nn.utils.parametrizations import weight_norm
 import torch.nn.functional as F
 
-from discoder.filter import LowPassFilter1d, kaiser_sinc_filter1d
+from .filter import LowPassFilter1d, kaiser_sinc_filter1d
 
 
 @torch.jit.script

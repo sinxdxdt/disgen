@@ -6,7 +6,7 @@ import torch
 import matplotlib.pyplot as plt
 import torchaudio as ta
 
-from discoder import meldataset
+from . import meldataset
 
 
 def get_devices(print_info=False):
